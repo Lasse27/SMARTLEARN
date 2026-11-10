@@ -1,0 +1,25 @@
+.git
+.gitignore
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.vscode/
+.idea/
+
+# Secrets und lokale Daten
+.env
+.env.*
+*.db
+*.sqlite3
+
+# Nicht fürs Image nötig
+tests/
+Dockerfile
+docker-compose.yml
+README.md
