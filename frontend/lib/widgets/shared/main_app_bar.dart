@@ -20,7 +20,18 @@ class SmartLearnAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       elevation: 4,
       shadowColor: Colors.black,
-      actions: [ThemeButton()],
+      actions: [
+        ThemeButton(),
+
+        Builder(
+          builder: (context) => IconButton(
+            tooltip: 'Account',
+            icon: const Icon(Icons.account_circle, size: 32),
+            onPressed: () => Scaffold.of(context).openEndDrawer(),
+          ),
+        ),
+        const SizedBox(width: 8),
+      ],
     );
   }
 }

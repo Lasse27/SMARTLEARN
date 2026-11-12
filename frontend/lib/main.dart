@@ -73,7 +73,7 @@ class _MainShellState extends State<MainShell> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: SmartLearnAppBar(),
-      drawer: SmartLearnAppDrawer(),
+      endDrawer: SmartLearnAppDrawer(),
       body: _pages[_index],
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
