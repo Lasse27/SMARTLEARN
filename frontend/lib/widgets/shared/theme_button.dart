@@ -8,6 +8,7 @@ class ThemeButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
+      iconSize: 32,
       tooltip: "Toggle theme",
       onPressed: () {
         final isDark = Theme.of(context).brightness == Brightness.dark;
