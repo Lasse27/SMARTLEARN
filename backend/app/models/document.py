@@ -11,6 +11,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from backend.app.core.db import Base
 
 if TYPE_CHECKING:
+    from .exercise import Exercise
     from .user import User
 
 
@@ -47,6 +48,10 @@ class Document(Base):
 
     # Beziehungen
     user: Mapped[User] = relationship(back_populates="documents")
+
+    exercises: Mapped[list[Exercise]] = relationship(
+        back_populates="document", cascade="all, delete-orphan"
+    )
 
     # Indizes und co.
     __table_args__ = (
