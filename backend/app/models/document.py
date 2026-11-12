@@ -4,7 +4,7 @@ import uuid
 from datetime import datetime
 from typing import TYPE_CHECKING
 
-from sqlalchemy import DateTime, ForeignKey, Index, String, func, text
+from sqlalchemy import BigInteger, DateTime, ForeignKey, Index, String, func, text
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -33,6 +33,23 @@ class Document(Base):
 
     title: Mapped[str] = mapped_column(
         String(320),
+        nullable=False,
+    )
+
+    filename: Mapped[str] = mapped_column(
+        String(255),
+        unique=True,
+        nullable=False,
+    )
+
+    content_type: Mapped[str | None] = mapped_column(
+        String(255),
+        nullable=True,
+    )
+
+    size: Mapped[int] = mapped_column(
+        BigInteger,
+        nullable=False,
     )
 
     created_at: Mapped[datetime] = mapped_column(

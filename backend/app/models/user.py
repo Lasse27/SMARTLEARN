@@ -27,14 +27,17 @@ class User(Base):
 
     name: Mapped[str] = mapped_column(
         String(320),
+        nullable=False,
     )
 
     email: Mapped[str] = mapped_column(
         String(320),
+        nullable=False,
     )
 
     email_verified: Mapped[bool] = mapped_column(
         default=False,
+        nullable=False,
     )
 
     created_at: Mapped[datetime] = mapped_column(
