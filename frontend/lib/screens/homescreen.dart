@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/widgets/activity_streak_map.dart';
+import 'package:frontend/widgets/screens/homescreen/activity_streak_map.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

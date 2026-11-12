@@ -1,10 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/core/theme_provider.dart';
 import 'package:frontend/screens/homescreen.dart';
-import 'package:frontend/widgets/smartlearn_app_bar.dart';
-import 'package:frontend/widgets/smartlearn_app_drawer.dart';
+import 'package:frontend/widgets/shared/main_app_bar.dart';
+import 'package:frontend/widgets/shared/main_app_drawer.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(const SmartLearnApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // ThemeProvider vor App-Start laden, damit kein Flackern
+  final themeProvider = ThemeProvider();
+  await themeProvider.load();
+
+  runApp(
+    MultiProvider(
+      providers: [ChangeNotifierProvider.value(value: themeProvider)],
+      child: const SmartLearnApp(),
+    ),
+  );
 }
 
 class SmartLearnApp extends StatelessWidget {
@@ -13,6 +26,7 @@ class SmartLearnApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final themeProvider = context.watch<ThemeProvider>();
     return MaterialApp(
       title: 'SmartLearn',
       theme: ThemeData(
@@ -31,7 +45,7 @@ class SmartLearnApp extends StatelessWidget {
         ),
       ),
 
-      themeMode: ThemeMode.system,
+      themeMode: themeProvider.themeMode,
       home: const MainShell(),
     );
   }
@@ -59,7 +73,7 @@ class _MainShellState extends State<MainShell> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: SmartLearnAppBar(),
-      endDrawer: SmartLearnAppDrawer(),
+      drawer: SmartLearnAppDrawer(),
       body: _pages[_index],
       floatingActionButton: FloatingActionButton(
         onPressed: () {},

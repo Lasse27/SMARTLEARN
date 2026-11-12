@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/widgets/shared/theme_button.dart';
 
 class SmartLearnAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
-  final bool showProfileButton;
 
   const SmartLearnAppBar({
     // im Konstruktor entgegennehmen
     super.key,
     this.title = "SMARTLEARN",
-    this.showProfileButton = true,
   });
 
   @override
@@ -21,7 +20,7 @@ class SmartLearnAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       elevation: 4,
       shadowColor: Colors.black,
-      automaticallyImplyLeading: false,
+      actions: [ThemeButton()],
     );
   }
 }
