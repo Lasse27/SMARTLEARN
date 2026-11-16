@@ -4,7 +4,7 @@ import 'package:frontend/widgets/shared/sections/section_item.dart';
 class SectionContent extends StatelessWidget {
   const SectionContent({super.key, required this.items});
   final List<SectionItem> items;
-  
+
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
@@ -15,11 +15,10 @@ class SectionContent extends StatelessWidget {
       itemBuilder: (context, index) {
         final item = items[index];
         return ListTile(
+          // Icon vor dem Item
           leading: item.icon != null ? Icon(item.icon) : null,
-
           // Titel des Items
           title: Text(item.title, maxLines: 1, overflow: TextOverflow.ellipsis),
-
           // Untertitel/Beschreibung des Items
           subtitle: item.subtitle != null
               ? Text(
@@ -28,7 +27,9 @@ class SectionContent extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 )
               : null,
+          // Wenn es ein OnTap gibt, dann Chevron anzeigen
           trailing: item.onTap != null ? const Icon(Icons.chevron_right) : null,
+          // Was passiert, wenn der User auf das Item klickt
           onTap: item.onTap,
         );
       },

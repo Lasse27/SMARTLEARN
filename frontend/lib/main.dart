@@ -1,6 +1,7 @@
+import 'package:frontend/core/app_router.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:frontend/core/theme_provider.dart';
-import 'package:frontend/screens/homescreen.dart';
+import 'package:frontend/screens/home_screen.dart';
 import 'package:frontend/widgets/shared/main_app_bar.dart';
 import 'package:frontend/widgets/shared/main_app_drawer.dart';
 import 'package:provider/provider.dart';
@@ -27,8 +28,9 @@ class SmartLearnApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeProvider = context.watch<ThemeProvider>();
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'SmartLearn',
+      routerConfig: router,
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
@@ -46,51 +48,6 @@ class SmartLearnApp extends StatelessWidget {
       ),
 
       themeMode: themeProvider.themeMode,
-      home: const MainShell(),
-    );
-  }
-}
-
-/// Shell der Anwendung. Verwaltet alle relevanten Screenwechsel
-class MainShell extends StatefulWidget {
-  const MainShell({super.key});
-
-  @override
-  State<MainShell> createState() => _MainShellState();
-}
-
-/// Zustand der Shell der Anwendung.
-class _MainShellState extends State<MainShell> {
-  int _index = 0;
-
-  final _pages = const [
-    HomeScreen(),
-    Center(child: Text('Lernen')),
-    Center(child: Text('Aufgaben erstellen')),
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: SmartLearnAppBar(),
-      endDrawer: SmartLearnAppDrawer(),
-      body: _pages[_index],
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.add),
-      ),
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: _index,
-        onDestinationSelected: (i) => setState(() => _index = i),
-        destinations: const [
-          NavigationDestination(icon: Icon(Icons.home_outlined), label: 'Home'),
-          NavigationDestination(icon: Icon(Icons.star_border), label: 'Lernen'),
-          NavigationDestination(
-            icon: Icon(Icons.edit_outlined),
-            label: 'Erstellen',
-          ),
-        ],
-      ),
     );
   }
 }
