@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:frontend/core/theme_provider.dart';
 import 'package:frontend/screens/homescreen.dart';
 import 'package:frontend/widgets/shared/main_app_bar.dart';

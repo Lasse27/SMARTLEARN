@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:frontend/widgets/shared/theme_button.dart';
 
 class SmartLearnAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -17,12 +17,13 @@ class SmartLearnAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(title),
-      centerTitle: true,
       elevation: 4,
       shadowColor: Colors.black,
       actions: [
+        // Light/Darkmode Button
         ThemeButton(),
 
+        // Button für rechten Account Drawer (muss mit Builder sein)
         Builder(
           builder: (context) => IconButton(
             tooltip: 'Account',
