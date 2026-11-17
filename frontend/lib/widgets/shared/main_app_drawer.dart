@@ -1,4 +1,5 @@
 import 'package:material_ui/material_ui.dart';
+import 'package:go_router/go_router.dart';
 
 class SmartLearnAppDrawer extends StatelessWidget {
   const SmartLearnAppDrawer({super.key});
@@ -21,13 +22,23 @@ class SmartLearnAppDrawer extends StatelessWidget {
             ),
           ),
 
+          // Aufgabensammlung / Library
+          ListTile(
+            leading: const Icon(Icons.library_books_outlined),
+            title: const Text('Aufgabensammlung'),
+            onTap: () {
+              Navigator.pop(context);
+              context.push('/home/library');
+            },
+          ),
+
           // Lernaktivität
           ListTile(
             leading: const Icon(Icons.bar_chart),
             title: const Text('Lernaktivität'),
             onTap: () {
-              Navigator.pop(context); // Drawer schließen
-              // danach navigieren
+              Navigator.pop(context);
+              // später z. B. context.push('/activity');
             },
           ),
 
@@ -35,14 +46,20 @@ class SmartLearnAppDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.settings),
             title: const Text('Einstellungen'),
-            onTap: () => Navigator.pop(context),
+            onTap: () {
+              Navigator.pop(context);
+              // später navigieren
+            },
           ),
 
           // Hilfe & Feedback
           ListTile(
             leading: const Icon(Icons.help_outline),
             title: const Text('Hilfe & Feedback'),
-            onTap: () => Navigator.pop(context),
+            onTap: () {
+              Navigator.pop(context);
+              // später navigieren
+            },
           ),
 
           const Divider(),
@@ -51,7 +68,10 @@ class SmartLearnAppDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.logout),
             title: const Text('Abmelden'),
-            onTap: () => Navigator.pop(context),
+            onTap: () {
+              Navigator.pop(context);
+              // später Abmeldung durchführen
+            },
           ),
         ],
       ),

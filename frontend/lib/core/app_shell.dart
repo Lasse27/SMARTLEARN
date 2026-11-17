@@ -1,7 +1,7 @@
+import 'package:material_ui/material_ui.dart';
 import 'package:frontend/widgets/shared/main_app_bar.dart';
 import 'package:frontend/widgets/shared/main_app_drawer.dart';
 import 'package:go_router/go_router.dart';
-import 'package:material_ui/material_ui.dart';
 
 class AppShell extends StatelessWidget {
   final StatefulNavigationShell navigationShell;
@@ -14,14 +14,12 @@ class AppShell extends StatelessWidget {
       appBar: SmartLearnAppBar(),
       endDrawer: SmartLearnAppDrawer(),
       body: navigationShell,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.add),
-      ),
 
       bottomNavigationBar: NavigationBar(
         selectedIndex: navigationShell.currentIndex,
-        onDestinationSelected: navigationShell.goBranch,
+        onDestinationSelected: (index) {
+          navigationShell.goBranch(index);
+        },
         destinations: const [
           NavigationDestination(icon: Icon(Icons.home_outlined), label: 'Home'),
           NavigationDestination(
