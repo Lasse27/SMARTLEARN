@@ -1,5 +1,23 @@
+# Backend
 fastapi[standard]
-sqlalchemy
+sqlalchemy[asyncio]
 pydantic-settings
 email-validator
+
+# Database (PostgreSQL)
+asyncpg
+
+# Image Processing
+numpy
+opencv-python
+
+# OCR
+pytesseract
+paddleocr
+rapidocr
+onnxruntime
+rapidocr_onnxruntime
+
+# Testing
 pytest
+httpx
