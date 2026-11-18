@@ -1,10 +1,10 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:frontend/widgets/shared/theme_button.dart';
 
-class SmartLearnAppBar extends StatelessWidget implements PreferredSizeWidget {
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
 
-  const SmartLearnAppBar({
+  const CustomAppBar({
     // im Konstruktor entgegennehmen
     super.key,
     this.title = "SMARTLEARN",

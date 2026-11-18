@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 
-import '../../components/navigation/app_header.dart';
-import '../../components/scan/scan_preview_card.dart';
+import '../widgets/shared/screen_bar.dart';
+import '../widgets/screens/scan_screen/scan_preview_card.dart';
 
 class DocumentsScreen extends StatefulWidget {
   const DocumentsScreen({super.key});
@@ -16,7 +16,7 @@ class _DocumentsScreenState extends State<DocumentsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppHeader(
+      appBar: ScreenBar(
         title: 'Aufgaben einscannen',
         onBack: () => Navigator.of(context).maybePop(),
       ),
@@ -65,10 +65,7 @@ class _DocumentsScreenState extends State<DocumentsScreen> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.check),
-      ),
+      
     );
   }
 }

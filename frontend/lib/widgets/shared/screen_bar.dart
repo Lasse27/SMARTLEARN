@@ -1,15 +1,13 @@
 import 'package:material_ui/material_ui.dart';
 
-class AppHeader extends StatelessWidget implements PreferredSizeWidget {
+class ScreenBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final VoidCallback? onBack;
-  final VoidCallback? onProfile;
 
-  const AppHeader({
+  const ScreenBar({
     super.key,
     required this.title,
     this.onBack,
-    this.onProfile,
   });
 
   @override
@@ -27,15 +25,9 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
       leading: onBack == null
           ? null
           : IconButton(
-              icon: const Icon(Icons.arrow_back_ios_new, size: 19),
+              icon: const Icon(Icons.chevron_left, size: 19),
               onPressed: onBack,
             ),
-      actions: [
-        IconButton(
-          icon: const Icon(Icons.account_circle_outlined),
-          onPressed: onProfile,
-        ),
-      ],
     );
   }
 }

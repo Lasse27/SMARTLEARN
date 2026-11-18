@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 
-import '../../components/cards/exercise_list_tile.dart';
-import '../../components/navigation/app_header.dart';
+import '../widgets/shared/cards/exercise_list_tile.dart';
+import '../widgets/shared/screen_bar.dart';
 
 class PracticeExercisesScreen extends StatelessWidget {
   const PracticeExercisesScreen({super.key});
@@ -9,7 +9,7 @@ class PracticeExercisesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppHeader(
+      appBar: ScreenBar(
         title: 'Generierte Aufgaben',
         onBack: () => Navigator.of(context).maybePop(),
       ),
@@ -39,10 +39,6 @@ class PracticeExercisesScreen extends StatelessWidget {
             'Aufgabe 7',
           ]),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.add),
       ),
     );
   }

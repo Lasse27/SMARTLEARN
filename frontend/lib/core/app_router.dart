@@ -1,5 +1,4 @@
 import 'package:frontend/core/app_shell.dart';
-import 'package:frontend/screens/documents_screen.dart';
 import 'package:frontend/screens/home_screen.dart';
 import 'package:frontend/screens/login_screen.dart';
 import 'package:frontend/screens/profile_screen.dart';
@@ -20,12 +19,6 @@ final router = GoRouter(
             GoRoute(
               path: '/home',
               builder: (context, state) => const HomeScreen(),
-              routes: [
-                GoRoute(
-                  path: 'library',
-                  builder: (context, state) => const LibraryScreen(),
-                ),
-              ],
             ),
           ],
         ),
@@ -33,8 +26,8 @@ final router = GoRouter(
         StatefulShellBranch(
           routes: [
             GoRoute(
-              path: '/documents',
-              builder: (context, state) => const DocumentsScreen(),
+              path: '/library',
+              builder: (context, state) => const LibraryScreen(),
             ),
           ],
         ),

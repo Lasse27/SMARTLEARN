@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 
-import '../../components/cards/category_card.dart';
-import '../../components/navigation/app_header.dart';
+import '../widgets/shared/cards/category_card.dart';
+import '../widgets/shared/screen_bar.dart';
 
 class LibraryScreen extends StatelessWidget {
   const LibraryScreen({super.key});
@@ -9,7 +9,7 @@ class LibraryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppHeader(
+      appBar: ScreenBar(
         title: 'Aufgabensammlung',
         onBack: () => Navigator.of(context).maybePop(),
       ),

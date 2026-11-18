@@ -1,6 +1,6 @@
 import 'package:material_ui/material_ui.dart';
-import 'package:frontend/widgets/shared/main_app_bar.dart';
-import 'package:frontend/widgets/shared/main_app_drawer.dart';
+import 'package:frontend/widgets/shared/app_bar.dart';
+import 'package:frontend/widgets/shared/app_drawer.dart';
 import 'package:go_router/go_router.dart';
 
 class AppShell extends StatelessWidget {
@@ -11,8 +11,8 @@ class AppShell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SmartLearnAppBar(),
-      endDrawer: SmartLearnAppDrawer(),
+      appBar: CustomAppBar(),
+      endDrawer: AppDrawer(),
       body: navigationShell,
 
       bottomNavigationBar: NavigationBar(
@@ -21,16 +21,19 @@ class AppShell extends StatelessWidget {
           navigationShell.goBranch(index);
         },
         destinations: const [
-          NavigationDestination(icon: Icon(Icons.home_outlined), label: 'Home'),
-          NavigationDestination(
-            icon: Icon(Icons.star_border),
-            label: 'Dokumente',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.edit_outlined),
-            label: 'Herausforderungen',
-          ),
+          // Homescreen
+          NavigationDestination(icon: Icon(Icons.home), label: 'Startseite'),
+
+          // Library
+          NavigationDestination(icon: Icon(Icons.book), label: 'Bibliothek'),
+
+          // Challenges
+          NavigationDestination(icon: Icon(Icons.edit), label: 'Challenges'),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.add_a_photo),
       ),
     );
   }
