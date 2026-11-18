@@ -1,5 +1,5 @@
 import os
-from app.services.ocr.ocr import OCRArgs, OCRService
+from app.core.ocr.ocr import OCRArgs, OCRService
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
