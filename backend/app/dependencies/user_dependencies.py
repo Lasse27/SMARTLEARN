@@ -4,7 +4,7 @@ from typing import Annotated
 from fastapi import Depends
 
 from app.repositories import InMemoryUserRepository, UserRepository
-from backend.app.services import UserService
+from app.services import UserService
 
 
 @lru_cache
