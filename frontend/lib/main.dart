@@ -1,9 +1,6 @@
 import 'package:frontend/core/app_router.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:frontend/core/theme_provider.dart';
-import 'package:frontend/screens/home_screen.dart';
-import 'package:frontend/widgets/shared/main_app_bar.dart';
-import 'package:frontend/widgets/shared/main_app_drawer.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {
